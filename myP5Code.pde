@@ -3,7 +3,7 @@ setup = function() {
 };
 
 var answer = 2;
-
+var heartY1= 400;
 draw = function(){
   background(100,100,100);
   fill(0, 0, 0);
@@ -44,14 +44,30 @@ drawUnicorn(70, 70);
   if(answer==6){
   text("idk man...",176,200);
   }
+  
+    if(mousePressed){
+  text("♡", random(100,200), random(0,250))
+  }
+  drawHeart(190,50+heartY1);
+  heartY1=heartY1-2;
+  drawHeart(25,50+heartY1);
+  drawHeart(100,50+heartY1);
+  drawHeart(250,50+heartY1);
+  drawHeart(350,50+heartY1);
+  if(heartY1<-300){
+  heartY1=400;}
 };
 
 
 mouseClicked = function(){
   answer = round(random(1, 6));
+  
 };
 
-
+var drawHeart= function(heartX,heartY){ 
+textSize(25);
+text("♡", heartX,heartY);
+};
 //Function Definition
 var drawUnicorn = function(unicornX, unicornY){
 translate(unicornX,unicornY);
